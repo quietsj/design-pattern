@@ -4,51 +4,7 @@ import (
 	"fmt"
 )
 
-//strategy.go逻辑
-/*
-FlyBehavior -> interface
-	|-ways:
-		|-fly()
-	|-implement:
-		|-FlyWithWings
-		|-FlyNoWay
 
-QuackBehavior -> interface
-	|-ways:
-		|-quack()
-	|-implement:
-		|-Quack
-		|-Squeak
-		|-MuteQuack
-
-Duck -> class
-	|-members:
-		|-flyBehavior FlyBehavior
-		|-quackBehavior QuackBehavior
-	|-ways
-		|-setFlyBehavior()
-		|-setQuackBehavior()
-		|-display()
-		|-performFly()
-		|-performQuack()
-		|-swim()
-	|-subclasses
-		|-MallardDuck
-			|-overwrite
-				|-display()
-		|-RedHeadDuck
-			|-overwrite
-				|-display()
-		|-RubberDuck
-			|-overwrite
-				|-display()
-		|-DecoyDuck
-			|-overwrite
-				|-display()
-		|-ModelDuck
-			|-overwrite
-				|-display()
-*/
 
 //封装飞行行为，飞行行为算法族
 type FlyBehavior interface {
