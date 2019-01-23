@@ -17,6 +17,7 @@ Implementation of design pattern go language
 		|-implement:
 			|-FlyWithWings
 			|-FlyNoWay
+			|-FlyRocketPowered
 	
 	QuackBehavior -> interface
 		|-ways:
