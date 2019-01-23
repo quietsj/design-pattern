@@ -5,14 +5,8 @@ Implementation of design pattern go language
 + [strategy pattern](#strategy-pattern)
 + 
 
-<<<<<<< HEAD
-## [strategy pattern](./01-strategy)
-+ 定义：定义了算法族，分别封装起来，让它们之间可以相互替换，
-=======
-
 ## strategy pattern
 + **定义**：定义了算法族，分别封装起来，让它们之间可以相互替换，
->>>>>>> dev
 此模式让算法的变化独立于使用算法的对象。
 + **类型**：行为类模式
 + **逻辑类图**：
