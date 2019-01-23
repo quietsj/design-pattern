@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+//strategy.go逻辑
 /*
 FlyBehavior -> interface
 	|-ways:
@@ -68,6 +69,7 @@ type FlyRocketPowered struct {}
 func (t *FlyRocketPowered)fly()  {
 	fmt.Println("I'm flying with a rocket!")
 }
+
 
 
 //封装呱呱叫行为，呱呱叫行为算法族
