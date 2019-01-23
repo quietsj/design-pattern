@@ -3,7 +3,7 @@ Implementation of design pattern go language
 
 ## content
 + [strategy pattern](#strategy-pattern)
-+ [waitingg]()
++ [next]()
 
 
 ## strategy pattern
