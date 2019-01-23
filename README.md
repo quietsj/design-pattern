@@ -4,6 +4,7 @@ Implementation of design pattern go language
 ## content
 + [strategy pattern](#strategy-pattern)
 + [loading]()
++ [waiting]()
 
 
 ## strategy pattern
