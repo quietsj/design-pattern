@@ -3,7 +3,7 @@ Implementation of design pattern go language
 
 ## content
 + [strategy pattern](#strategy-pattern)
-+ [waitingg]()
++ [next]()
 
 ## strategy pattern
 + **定义**：定义了算法族，分别封装起来，让它们之间可以相互替换，
