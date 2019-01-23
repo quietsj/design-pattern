@@ -10,6 +10,61 @@ Implementation of design pattern go language
 + 定义：定义了算法族，分别封装起来，让它们之间可以相互替换，
 此模式让算法的变化独立于使用算法的对象。
 + 类型：行为类模式
++ 逻辑类图：
+	```
+	FlyBehavior -> interface
+		|-ways:
+			|-fly()
+		|-implement:
+			|-FlyWithWings
+			|-FlyNoWay
+	
+	QuackBehavior -> interface
+		|-ways:
+			|-quack()
+		|-implement:
+			|-Quack
+			|-Squeak
+			|-MuteQuack
+	
+	Duck -> struct
+		|-members:
+			|-flyBehavior FlyBehavior
+			|-quackBehavior QuackBehavior
+		|-ways
+			|-setFlyBehavior()
+			|-setQuackBehavior()
+			|-display()
+			|-performFly()
+			|-performQuack()
+			|-swim()
+		|-subclasses
+			|-MallardDuck
+			|-RedHeadDuck
+			|-RubberDuck
+			|-DecoyDuck
+			|-ModelDuck
+			
+	MallardDuck -> struct
+    	|-overwrite
+    		|-display()
+    		
+	RedHeadDuck -> struct
+    	|-overwrite
+    		|-display()
+    		
+	RubberDuck -> struct
+    	|-overwrite
+    		|-display()
+    		
+	DecoyDuck -> struct
+    	|-overwrite
+    		|-display()
+    		
+	ModelDuck -> struct
+    	|-overwrite
+    		|-display()
+	```
 + 策略模式的结构:
 	+ 封装类：对策略进行二次封装，目的是避免高层模块对策略的直接调用。
 	+ 抽象策略：通常情况下为一个接口，当各个实现类中存在着重复的逻辑时，则使用抽象类来封装这部分公共的代码。
