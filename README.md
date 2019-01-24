@@ -5,7 +5,6 @@ Implementation of design pattern go language
 + [strategy pattern](#strategy-pattern)
 + [next next]()
 
-
 ## strategy pattern
 + **定义**：定义了算法族，分别封装起来，让它们之间可以相互替换，
 此模式让算法的变化独立于使用算法的对象。
