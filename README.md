@@ -3,7 +3,7 @@ Implementation of design pattern go language
 
 ## content
 + [strategy pattern](#strategy-pattern)
-+ [next next]()
++ [observer pattern](#observer-pattern)
 
 ## strategy pattern
 + **定义**：定义了算法族，分别封装起来，让它们之间可以相互替换，
@@ -79,3 +79,8 @@ Implementation of design pattern go language
 + **适用场景**
 	+ 几个类的主要逻辑相同，只在部分逻辑的算法和行为上稍有区别的情况。
 	+ 有几种相似的行为，或者说算法，客户端需要动态地决定使用哪一种，那么可以使用策略模式，将这些算法封装起来供客户端调用。
+
+## observer pattern
++ **define**: A one-to-many dependency between objects is
+	defined so that when an object changes state, all its
+	dependencies are notified and updated automatically.
