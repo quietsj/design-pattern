@@ -1,19 +1,17 @@
 package observer
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestObserver(t *testing.T){
 	weatherData := newWeatherData()
-	currentConditionDisplay := newCurrentConditionsDisplay(weatherData)
-	statisticDisplay := newStatisticsDisplay(weatherData)
-	forecastDisplay := newForecastDisplay(weatherData)
+	var currentConditionDisplay = newCurrentConditionsDisplay(weatherData)
+	var statisticDisplay = newStatisticsDisplay(weatherData)
+	var forecastDisplay = newForecastDisplay(weatherData)
 	weatherData.setMeasurements(80,65,30.4)
-	currentConditionDisplay.display()
-	statisticDisplay.display()
-	forecastDisplay.display()
 	weatherData.setMeasurements(82,70,29.2)
 	weatherData.setMeasurements(78,90,29.2)
-	currentConditionDisplay.display()
-	statisticDisplay.display()
-	forecastDisplay.display()
+	fmt.Println("Observers:", currentConditionDisplay, statisticDisplay, forecastDisplay)
 }
