@@ -18,7 +18,7 @@ func newCurrentConditionsDisplay(weatherData *WeatherData) *CurrentConditionsDis
 func (t *CurrentConditionsDisplay)update(temperature float64, humidity float64, pressure float64)  {
 	t.temperature = temperature
 	t.humidity = humidity
-	
+	t.display()
 }
 
 func (t *CurrentConditionsDisplay)display()  {

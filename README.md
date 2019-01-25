@@ -6,10 +6,12 @@ Implementation of design pattern go language
 + [observer pattern](#observer-pattern)
 
 ## strategy pattern
-+ **定义**：定义了算法族，分别封装起来，让它们之间可以相互替换，
-此模式让算法的变化独立于使用算法的对象。
-+ **类型**：行为类模式
-+ **逻辑类图**：
++ **define**: The algorithmic family is defined and
+	encapsulated separately so that they can be replaced
+	each other. This pattern makes algorithmic changes
+	independent of the objects using the algorithmic.
++ **type**: behavioral pattern
++ **logical class diagram**:
 	```
 	FlyBehavior -> interface
 		|-ways:
@@ -65,20 +67,72 @@ Implementation of design pattern go language
     	|-overwrite
     		|-display()
 	```
-+ **策略模式的结构**:
-	+ **封装类**：对策略进行二次封装，目的是避免高层模块对策略的直接调用。
-	+ **抽象策略**：通常情况下为一个接口，当各个实现类中存在着重复的逻辑时，则使用抽象类来封装这部分公共的代码。
-	+ **具体策略**：具体策略角色通常由一组封装了算法的类来担任，这些类之间可以根据需要自由替换。
-+ **策略模式的主要优点**：
-	+ 策略类之间可以自由切换，由于策略类实现自同一个抽象，所以他们之间可以自由切换。
-	+ 易于扩展，增加一个新的策略对策略模式来说非常容易，基本上可以在不改变原有代码的基础上进行扩展。
-	+ 避免使用多重条件，如果不使用策略模式，对于所有的算法，必须使用条件语句进行连接，通过条件判断来决定使用哪一种算法，使用多重条件判断是非常不容易维护的。
-+ **策略模式的主要缺点**：
-	+ 维护各个策略类会给开发带来额外开销。
-	+ 必须对客户端（调用者）暴露所有的策略类，因为使用哪种策略是由客户端来决定的，因此，客户端应该知道有什么策略，并且了解各种策略之间的区别，否则，后果很严重。
-+ **适用场景**
-	+ 几个类的主要逻辑相同，只在部分逻辑的算法和行为上稍有区别的情况。
-	+ 有几种相似的行为，或者说算法，客户端需要动态地决定使用哪一种，那么可以使用策略模式，将这些算法封装起来供客户端调用。
++ **the structure of strategy pattern**:
+	+ **encapsulation class**: Secondary encapsulation of the
+	the strategy is to avoid direct invocation of the
+	strategy by high-level modules.
+	+ **abstract strategy**: Usually, it't an interface.
+	When there are repetitive logic in each implementation
+	class, abstract classes are used to encapsulate this
+	part of common code.
+	+ **concrete strategy**: Concrete strategy roles are
+	usually assumed by a group of classes encapsulating
+	algorithms, which can be freely replaced as needed.
++ **strategy pattern code implementation**:
+	+ **[01-strategy](./01-strategy)**
+	+ **test result**
+		```
+		$ go test -v
+		=== RUN   TestStrategy
+		I'm a real Mallard duck!
+		I'am flying     !
+		Quack!
+		I'm a real Red Headed duck!
+		I'am flying     !
+		Quack!
+		I'm a real Rubber duck!
+		I can't fly!
+		Squeak!
+		I'm a real Decoy duck!
+		I can't fly!
+		Silence!
+		I'm a model duck!
+		I can't fly!
+		Model duck add rocket power!
+		I'm flying with a rocket!
+		Quack!
+		--- PASS: TestStrategy (0.00s)
+		PASS
+		ok      design-pattern/01-strategy      0.004s
+
+		```
++ **main advantages of strategy pattern**:
+	+ Strategy classes are free switch between them because
+	the strategy classes are implemented from the same abstraction.
+	+ Easy to extend, adding a new strategy is very easy for
+	strategy pattern, and can be extended basically without
+	changing the original code.
+	+ Avoid using multiple conditions. If you don't use the
+	strategy pattern, you must use conditional statements
+	to join all algorithms and use conditional judgement to
+	decide which algorithm to use. Using multiple conditional
+	judgement is very difficult to maintain.
++ **main disadvantages of strategy pattern**:
+	+ Maintaining the various strategy classes imposes
+	additional overhead on development.
+	+ All the strategy classes must be exposed to the client
+	(the caller)because it is up to client decide which
+	strategies to use, so the client should know what strategies
+	are and the differences between them, otherwise the
+	consequences can be severs.
++ **applicable scenario**:
+	+ The main logic of several class is the same, with only
+	minor differences in the algorithm and behavior of partial
+	logic.
+	+ There are several similar behaviors, or algorithms
+	that clients need to dynamically decide which to use,
+	and these algorithms can bo encapsulated for clients
+	to call using strategy patter.
 
 ## observer pattern
 + **define**: A one-to-many dependency between objects is
