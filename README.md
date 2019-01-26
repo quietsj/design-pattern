@@ -11,7 +11,7 @@ Implementation of design pattern go language
 	each other. This pattern makes algorithmic changes
 	independent of the objects using the algorithmic.
 + **type**: behavioral pattern
-+ **logical class diagram**:  
++ **class diagram**:  
 	![duck behavior](./01-strategy/duck-behavior.png)
 + **the structure of strategy pattern**:
 	+ **encapsulation class**: Secondary encapsulation of the
