@@ -11,62 +11,8 @@ Implementation of design pattern go language
 	each other. This pattern makes algorithmic changes
 	independent of the objects using the algorithmic.
 + **type**: behavioral pattern
-+ **logical class diagram**:
-	```
-	FlyBehavior -> interface
-		|-ways:
-			|-fly()
-		|-implement:
-			|-FlyWithWings
-			|-FlyNoWay
-			|-FlyRocketPowered
-	
-	QuackBehavior -> interface
-		|-ways:
-			|-quack()
-		|-implement:
-			|-Quack
-			|-Squeak
-			|-MuteQuack
-	
-	Duck -> struct
-		|-members:
-			|-flyBehavior FlyBehavior
-			|-quackBehavior QuackBehavior
-		|-ways
-			|-setFlyBehavior()
-			|-setQuackBehavior()
-			|-display()
-			|-performFly()
-			|-performQuack()
-			|-swim()
-		|-subclasses
-			|-MallardDuck
-			|-RedHeadDuck
-			|-RubberDuck
-			|-DecoyDuck
-			|-ModelDuck
-			
-	MallardDuck -> struct
-    	|-overwrite
-    		|-display()
-    		
-	RedHeadDuck -> struct
-    	|-overwrite
-    		|-display()
-    		
-	RubberDuck -> struct
-    	|-overwrite
-    		|-display()
-    		
-	DecoyDuck -> struct
-    	|-overwrite
-    		|-display()
-    		
-	ModelDuck -> struct
-    	|-overwrite
-    		|-display()
-	```
++ **logical class diagram**:  
+	![duck behavior](./01-strategy/duck-behavior.png)
 + **the structure of strategy pattern**:
 	+ **encapsulation class**: Secondary encapsulation of the
 	the strategy is to avoid direct invocation of the
@@ -139,73 +85,8 @@ Implementation of design pattern go language
 	defined so that when an object changes state, all its
 	dependencies are notified and updated automatically.
 + **type**: behavioral pattern
-+ **logical class diagram**:
-	```
-	Subject -> interface
-		|-ways
-			|-registerObserver(o Observer)
-			|-removeObserver(o Observer)
-			|-notifyObservers()
-		|-implement
-			|-WeatherData
-	
-	Observer -> interface
-		|-ways
-			|-update(temperature float64, humidity float64, pressure float64)
-		|-implement
-			|-CurrentConditionsDisplay
-			|-ForecasDisplay
-			|-HeatIndexDisplay
-			|-StatisticsDisplay
-	
-	isplayElement -> interface
-		|-ways
-			|-display()
-		|-implement
-			|-CurrentConditionsDisplay
-			|-ForecasDisplay
-			|-HeatIndexDisplay
-			|-StatisticsDisplay
-	
-	WeatherData -> struct
-		|-members
-			|-observers []Observer
-			|-temperature float64
-			|-humidity float64
-			|-pressure float64
-		|-ways
-			|-registerObserver(o Observer)
-			|-removeObserver(o Observer)
-			|-notifyObservers()
-			|-measurementsChanged() 
-			|-setMeasurements(temperature float64, humidity float64, pressure float64)
-			|-getTemperature() float64
-			|-getHumidity() float64
-			|-getPressure() float64
-	
-	CurrentConditionsDisplay -> struct
-		|-members
-			|-temperature float64
-			|-humidity float64
-			|-weatherData *WeatherData
-		|-ways
-			|-update(temperature float64, humidity float64, pressure float64)
-			|-display()
-	
-	ForecastDisplay -> struct
-		|-members
-			|-currentPressure float64
-			|-lastPressure float64
-			|-weatherData *WeatherData
-		|-ways
-			|-update(temperature float64, humidity float64, pressure float64)
-			|-display()
-		
-	HeatIndexDisplay -> struct
-		|-members
-			|-heatIndex float64
-			|-weatherData *WeatherData
-	```
++ **class diagram**:  
+	![weather station](./02-observer/weather-station.png)
 + **the structure of observer pattern**
 	+ **subject**: As you can see from the class diagram,
 	there is a slice in the interface for the observer object,

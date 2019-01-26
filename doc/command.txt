@@ -1,0 +1,2 @@
+# draw class diagram
+java -jar doc/plantuml.jar -graphvizdot /usr/local/bin/dot /Users/quietsj/go/src/design-pattern/
