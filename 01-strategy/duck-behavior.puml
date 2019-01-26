@@ -1,0 +1,80 @@
+@startuml
+interface FlyBehavior
+interface QuackBehavior
+class Duck
+class FlyWithWings
+class FlyNoWay
+class FlyRocketPowered
+class Quack
+class Squeak
+class MuteQuack
+class MallardDuck
+class RedHeadDuck
+class RubberDuck
+class DecoyDuck
+class ModelDuck
+
+FlyWithWings ..|> FlyBehavior :implement
+FlyNoWay ..|> FlyBehavior :implement
+FlyRocketPowered ..|> FlyBehavior :implement
+Quack ..|> QuackBehavior :implement
+Squeak ..|> QuackBehavior :implement
+MuteQuack ..|> QuackBehavior :implement
+MallardDuck --|> Duck :inherit
+RedHeadDuck --|> Duck :inherit
+RubberDuck --|> Duck :inherit
+DecoyDuck --|> Duck :inherit
+ModelDuck --|> Duck :inherit
+Duck --> FlyBehavior :relevance
+Duck --> QuackBehavior :relevance
+
+interface FlyBehavior{
+	fly()
+}
+interface QuackBehavior{
+	quack()
+}
+class Duck{
+~	flyBehavior FlyBehavior
+~	quackBehavior QuackBehavior
++	setFlyBehavior(fb FlyBehavior)
++	setQuackBehavior(qb QuackBehavior)
++	display()
++	performFly()
++	performQuack()
++	swim()
+}
+class FlyWithWings{
++	fly()
+}
+class FlyNoWay{
++	fly()
+}
+class FlyRocketPowered{
++	fly()
+}
+class Quack{
++	quack()
+}
+class Squeak{
++	quack()
+}
+class MuteQuack{
++	quack()
+}
+class MallardDuck{
++	display() // overwrite
+}
+class RedHeadDuck{
++	display() // overwrite
+}
+class RubberDuck{
++	display() // overwrite
+}
+class DecoyDuck{
++	display() // overwrite
+}
+class ModelDuck{
++	display() // overwrite
+}
+@enduml

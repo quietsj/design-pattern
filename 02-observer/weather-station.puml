@@ -1,0 +1,83 @@
+@startuml
+Title "weather station"
+interface Subject
+interface Observer
+interface DisplayElement
+
+class WeatherData
+class CurrentConditionsDisplay
+class StatisticsDisplay
+class ForecastDisplay
+class HeatIndexDisplay
+
+Subject --> Observer :relevance
+CurrentConditionsDisplay --> WeatherData : relevance
+StatisticsDisplay --> WeatherData : relevance
+ForecastDisplay --> WeatherData : relevance
+HeatIndexDisplay --> WeatherData : relevance
+WeatherData ..|> Subject :implement
+CurrentConditionsDisplay ..|> Observer :implement
+CurrentConditionsDisplay ..|> DisplayElement :implement
+StatisticsDisplay ..|> Observer :implement
+StatisticsDisplay ..|> DisplayElement :implement
+ForecastDisplay ..|> Observer :implement
+ForecastDisplay ..|> DisplayElement :implement
+HeatIndexDisplay ..|> Observer :implement
+HeatIndexDisplay ..|> DisplayElement :implement
+
+interface Subject{
+	registerObserver(o Observer)
+	removeObserver(o Observer)
+	notifyObservers()
+}
+interface Observer{
+	update(temperature float64, humidity float64, pressure float64)
+}
+interface DisplayElement{
+	display()
+}
+class WeatherData {
+~	observers []Observer
+~	temperature float64
+~	humidity float64
+~	pressure float64
++	registerObserver(o Observer)
++	removeObserver(o Observer)
++	notifyObservers()
++	measurementsChanged()
++	setMeasurements(temperature float64, humidity float64, pressure float64)
++	getTemperature() float64
++	getHumidity() float64
++	getPressure() float64
+}
+class CurrentConditionsDisplay{
+~	temperature float64
+~	humidity float64
+~	weatherData *WeatherData
++	update(temperature float64, humidity float64, pressure float64)
++	display()
+}
+class StatisticsDisplay{
+~	maxTemperature float64
+~	minTemperature float64
+~	temperatureSum float64
+~	numReadings int
+~	weatherData *WeatherData
++	update(temperature float64, humidity float64, pressure float64)
++	display()
+}
+class ForecastDisplay{
+~	currentPressure float64
+~	lastPressure float64
+~	weatherData *WeatherData
++	update(temperature float64, humidity float64, pressure float64)
++	display()
+}
+class HeatIndexDisplay{
+~	heatIndex float64
+~	weatherData *WeatherData
+~	update(temperature float64, humidity float64, pressure float64)
++	computeHeatIndex(temperature float64, humidity float64) float64
++	display()
+}
+@enduml
